@@ -15,14 +15,22 @@ class UsersController < ApplicationController
     end
   end
 
-  get '/users/:id' do
-    "This is the user show page"
-  end
-
-
-
   get '/signup' do
     erb :signup
+  end
+
+  post '/users' do
+    if params[:name] != "" && params[:email] != "" && params[:password] != ""
+    @user = User.create(params)
+    redirect "/users/#{@user.id}"
+      else
+      # not valid
+    end
+
+  end
+
+  get '/users/:id' do
+    "This is the user show page"
   end
 
 end
