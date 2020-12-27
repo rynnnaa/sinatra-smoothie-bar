@@ -11,7 +11,7 @@ class UsersController < ApplicationController
       puts session
       redirect "users/#{@user.id}"
     else
-
+      redirect '/signup'
     end
   end
 
@@ -31,7 +31,7 @@ class UsersController < ApplicationController
 
   get '/users/:id' do
     @user = User.find_by(id: params[:id])
-    erb :'users/show'
+    erb :'/users/show'
   end
 
   get '/logout' do
