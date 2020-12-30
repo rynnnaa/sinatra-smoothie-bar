@@ -5,7 +5,7 @@ class SmoothieEntriesController < ApplicationController
   end
 
   post '/smoothie_entries' do
-    if !logged_in?
+    if logged_in?
       redirect '/'
     end
 
@@ -17,12 +17,20 @@ class SmoothieEntriesController < ApplicationController
     end
   end
 
-  get '/smoothies/:id' do
-    @smoothie = Smoothie.find(params[:id])
+  get '/smoothie_entries/:id' do
+    @smoothie_entry = SmoothieEntry.find(params[:id])
     erb :"/smoothie_entries/show"
   end
 
-  get '/smoothies/:id/edit' do 
-    "Hello World"
+  get '/smoothie_entries/:id/edit' do 
+    @smoothie_entry = SmoothieEntry.find(params[:id])
+    erb :'smoothie_entries/edit'
   end
+
+  patch '/smoothie_entries/:id' do
+    @smoothie_entry = SmoothieEntry.find(params[:id])
+    @smoothie_entry.update(content: params[:content])
+    redirect "/smoothie_entries/#{@smoothie_entry.id}"
+  end
+
 end
