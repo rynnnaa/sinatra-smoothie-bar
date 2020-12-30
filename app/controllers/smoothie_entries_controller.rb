@@ -37,7 +37,7 @@ class SmoothieEntriesController < ApplicationController
         redirect "users/#{currnet_user.id}"
       end
     else
-      redirect "/"
+      redirect '/'
     end
   end
 
@@ -52,6 +52,16 @@ class SmoothieEntriesController < ApplicationController
       end
     else
       redirect '/'
+    end
+  end
+
+  delete '/smoothie_entries/:id' do
+    @smoothie_entry = SmoothieEntry.find(params[:id])
+    if authorized_to_edit?(@smoothie_entry)
+      @smoothie_entry.destroy
+      redirect '/smoothie_entries'
+    else
+      redirect '/smoothie_entries'
     end
   end
 end
