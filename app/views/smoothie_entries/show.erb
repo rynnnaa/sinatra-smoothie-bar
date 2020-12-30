@@ -3,5 +3,8 @@ SHOW PAGE
 
 <% if current_user == @smoothie_entry.user %>
 <a href="/smoothie_entries/<%=@smoothie_entry.id%>/edit">Edit Entry</a>
-<a href=""></a> 
+<form class="" action="/smoothie_entries/<%=@smoothie_entry.id%>" method="post">
+<input type="hidden" name="_method" value="DELETE">
+<input type="submit" name:: value="Delete this entry">
+</form>
 <% end %>
