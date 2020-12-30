@@ -1,7 +1,7 @@
 SHOW PAGE
 <p><%= @smoothie_entry.content%></p>
 
-Edit Link
+<% if current_user == @smoothie_entry.user %>
 <a href="/smoothie_entries/<%=@smoothie_entry.id%>/edit">Edit Entry</a>
-
-Delete Link
+<a href=""></a> 
+<% end %>

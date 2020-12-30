@@ -1,1 +1,7 @@
-INDEX PAGE For Journal Entries 
+Smoothie Entries 
+<% @smoothie_entries.each do |smoothie_entry| %>
+<h3><a href="/smoothie_entries/<%= smoothie_entry.id %>"><%= smoothie_entry.created_at %></a></h3>
+<p><%= smoothie_entry.content  %></p>
+<%# <p>By <%= smoothie_entry.user.name %></p>
+<br>
+<% end %>
