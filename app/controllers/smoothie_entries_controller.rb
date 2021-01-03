@@ -30,29 +30,17 @@ class SmoothieEntriesController < ApplicationController
 
   get '/smoothie_entries/:id/edit' do 
     @smoothie_entry = SmoothieEntry.find(params[:id])
-    if logged_in?
-      if authorized_to_edit?(@smoothie_entry)
-        erb :'smoothie_entries/edit'
-      else
-        redirect "users/#{currnet_user.id}"
-      end
+    if @smoothie_entry.user_id == current_user
+      erb :'smoothie_entries/edit'
     else
-      redirect '/'
+      redirect "users/#{current_user.id}"
     end
   end
 
   patch '/smoothie_entries/:id' do
     @smoothie_entry = SmoothieEntry.find(params[:id])
-    if logged_in?
-      if @smoothie_entry.user == current_user
-        @smoothie_entry.update(content: params[:content])
-        redirect "/smoothie_entries/#{@smoothie_entry.id}"
-      else
-        redirect "users/#{currnet_user.id}"
-      end
-    else
-      redirect '/'
-    end
+    @smoothie_entry.update(content: params[:content])
+    redirect "/smoothie_entries/#{@smoothie_entry.id}"
   end
 
   delete '/smoothie_entries/:id' do
