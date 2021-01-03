@@ -1,10 +1,11 @@
 SHOW PAGE
 <p><%= @smoothie_entry.content%></p>
+<p><%= @smoothie_entry.user%></p>
 
-<% if current_user == @smoothie_entry.user %>
+<% if authorized_to_edit?(@smoothie_entry) %>
 <a href="/smoothie_entries/<%=@smoothie_entry.id%>/edit">Edit Entry</a>
 <form class="" action="/smoothie_entries/<%=@smoothie_entry.id%>" method="post">
 <input type="hidden" name="_method" value="DELETE">
-<input type="submit" name:: value="Delete this entry">
+<input type="submit" name='' value="Delete this entry">
 </form>
 <% end %>
