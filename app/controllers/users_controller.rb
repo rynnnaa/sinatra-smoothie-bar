@@ -20,7 +20,7 @@ class UsersController < ApplicationController
   end
 
   post '/users' do
-    if params[:name] != "" && params[:email] != "" && params[:password] != ""
+    if params[:name] != '' && params[:email] != '' && params[:password] != ''
     @user = User.create(params)
     session[:user_id] = @user.id
     redirect "/users/#{@user.id}"
