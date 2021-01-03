@@ -11,9 +11,18 @@ bundle install
 
 ```zsh
 rake db:migrate
+```
+
 
 ```zsh
 shotgun
+```
+
+
+
+
+
+
 
 ## Contributing
 Please contribute pull requests to following link: https://github.com/rynnnaa/sinatra-smoothie-bar
