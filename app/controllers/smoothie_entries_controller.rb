@@ -28,7 +28,7 @@ class SmoothieEntriesController < ApplicationController
     erb :"/smoothie_entries/show"
   end
 
-  get '/smoothie_entries/:id/edit' do 
+  get '/smoothie_entries/:id/edit' do
     @smoothie_entry = SmoothieEntry.find(params[:id])
     if @smoothie_entry.user_id == current_user
       erb :'smoothie_entries/edit'
