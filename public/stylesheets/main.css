@@ -13,7 +13,7 @@
 
   /* --- Welcome Page Styles --- */
   body {
-    background-color: pink;
+    background-color: rgb(205, 255, 192);
     color: #333;
     font-family: Sans-Serif;
     line-height: 18px;
@@ -33,7 +33,6 @@
   h1 {
     font-size: 36px;
     line-height: 54px;
-    color :yellowgreen
   }
 
   h2 {
@@ -41,7 +40,6 @@
     font-size: 24px;
     line-height: 36px;
     margin-bottom: 16px;
-    color :aqua
   }
 
   h3 {
@@ -55,23 +53,7 @@
 
   .main {
     overflow: hidden;
-  }
-
-  .content {
-    float: left;
-    width: 60%; /* 480px / 800px */
-  }
-
-  .sidebar {
-    background: #eee;
-    border: 1px solid #ccc;
-    float: right;
-    padding: 2.08333333333%; /* 5px / 240px */
-    width: 30%; /* 240px / 800px */
-  }
-
-  .sidebar ul {
-    font-size: 14px;
+    background-image: url("background-image: url(https://www.google.com/url?sa=i&url=https%3A%2F%2Fwholefully.com%2F8-staple-smoothies-know-make%2F&psig=AOvVaw2mLx0oK7DfX4mwALzsRlds&ust=1609819930061000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCPj_yNu0ge4CFQAAAAAdAAAAABAD");
   }
 
   .branding {
@@ -103,15 +85,5 @@
     border: none;
     border-top: 2px solid #ccc;
     padding: 0;
-  }
-
-  h1 {
-    font-size: 24px;
-    line-height: 36px;
-  }
-
-  h2 {
-    font-size: 18px;
-    line-height: 24px;
   }
 }
