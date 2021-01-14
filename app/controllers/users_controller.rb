@@ -11,7 +11,8 @@ class UsersController < ApplicationController
       puts session
       redirect "users/#{@user.id}"
     else
-      redirect '/signup'
+      flash[:errors] = "Your credentials were invalid. Please try again."
+      redirect '/login'
     end
   end
 

@@ -7,18 +7,23 @@ class SmoothieEntriesController < ApplicationController
   end
 
   get '/smoothie_entries/new' do
+    if !logged_in?
+      redirect '/'
+    end
     erb :'/smoothie_entries/new'
   end
 
   post '/smoothie_entries' do
-    if logged_in?
+    if !logged_in?
       redirect '/'
     end
 
     if params[:content] != ""
+      flash[:message] = 'Success!'
       @smoothie_entry = SmoothieEntry.create(params)
       redirect "/smoothie_entries/#{@smoothie_entry.id}"
     else
+      flash[:errors] = 'Unsuccessful. Please try again.'
       redirect '/smoothie_entries/new'
     end
   end
@@ -26,14 +31,19 @@ class SmoothieEntriesController < ApplicationController
   get '/smoothie_entries/:id' do
     @smoothie_entry = SmoothieEntry.find(params[:id])
     erb :"/smoothie_entries/show"
+
   end
 
   get '/smoothie_entries/:id/edit' do
     @smoothie_entry = SmoothieEntry.find(params[:id])
-    if @smoothie_entry.user_id == current_user
-      erb :'smoothie_entries/edit'
-    else
-      redirect "users/#{current_user.id}"
+    if logged_in?
+      if @smoothie_entry.user_id == current_user.id
+        erb :'smoothie_entries/edit'
+      else
+        redirect "users/#{current_user.id}"
+      end
+    else 
+      redirect '/'
     end
   end
 
