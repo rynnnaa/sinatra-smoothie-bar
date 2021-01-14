@@ -6,6 +6,10 @@ end
 
 use Rack::MethodOverride
 
+use Rack::Session::Cookie, :key => 'rack.session',
+                           :path => '/',
+                           :secret => 'your_secret'
+
 use UsersController
 use SmoothieEntriesController
 run ApplicationController
