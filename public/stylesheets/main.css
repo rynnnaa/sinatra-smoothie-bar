@@ -9,6 +9,8 @@
   html, body {
     height: 100%;
     width: 100%;
+    background-image: url("https://wholefully.com/wp-content/uploads/2019/04/no-banana-smoothies_972x1272_acf_cropped-735x962.jpg");
+
   }
 
   /* --- Welcome Page Styles --- */
@@ -20,11 +22,13 @@
   }
 
   .wrapper {
-    background: pink;
+    background: lightpink;
+    opacity: 90%;
     -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
     -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
     box-shadow: 0 0 10px rgba(0,0,0,.3);
     margin: 16px auto;
+    border-radius: 10px;
     max-width: 960px;
     padding: 2.25%; /* 18px / 800px */
     width: 85%;
@@ -53,7 +57,6 @@
 
   .main {
     overflow: hidden;
-    background-image: url("background-image: url(https://www.google.com/url?sa=i&url=https%3A%2F%2Fwholefully.com%2F8-staple-smoothies-know-make%2F&psig=AOvVaw2mLx0oK7DfX4mwALzsRlds&ust=1609819930061000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCPj_yNu0ge4CFQAAAAAdAAAAABAD");
   }
 
   .branding {
