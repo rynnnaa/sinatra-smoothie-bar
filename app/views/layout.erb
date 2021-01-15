@@ -18,12 +18,13 @@
   <% if logged_in? %>
     <a href="/logout">Log Out</a>
     <a href="/smoothie_entries">View All Smoothie Recipes</a>
+    <a href="/smoothie_entries/my_entries">View Your Smoothie Recipes</a>
     <a href="/smoothie_entries/new">Create New Smoothie</a>
+
   <% end %>
     </div>
     <div class="wrapper">
     <% if flash[:message] %>
-    <h1><%= flash[:message] %> </h1>
     <h1 style="color: green;"><%= flash[:message]%>
     <% end %>
     <% if flash[:errors] %>
