@@ -4,5 +4,6 @@ EDIT
   <input type="hidden" name="_method" value="patch">
   <label for="content">Content:</label>
   <textarea name="content" style="width:auto; height:auto;"><%= @smoothie_entry.content %></textarea>
+  <p>By: <%= smoothie_entry.user.name %></p>
   <input type="submit" name="" value="Edit Entry">
 </form>
