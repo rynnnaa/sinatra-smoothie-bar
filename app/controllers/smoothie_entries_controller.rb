@@ -39,7 +39,7 @@ class SmoothieEntriesController < ApplicationController
   end
 
   get '/smoothie_entries/:id/edit' do
-    @smoothie_entry = SmoothieEntry.find(params[:id])
+    set_smoothie_entry
     if logged_in?
       if @smoothie_entry.user_id == current_user.id
         erb :'smoothie_entries/edit'
@@ -52,7 +52,7 @@ class SmoothieEntriesController < ApplicationController
   end
 
   patch '/smoothie_entries/:id' do
-    @smoothie_entry = SmoothieEntry.find(params[:id])
+    set_smoothie_entry
     if logged_in?
       if @smoothie_entry.user == current_user && params[:content] != ""
         @smoothie_entry.update(content: params[:content])
@@ -66,12 +66,17 @@ class SmoothieEntriesController < ApplicationController
   end
 
   delete '/smoothie_entries/:id' do
-    @smoothie_entry = SmoothieEntry.find(params[:id])
+    set_smoothie_entry
     if authorized_to_edit?(@smoothie_entry)
       @smoothie_entry.destroy
       redirect '/smoothie_entries'
     else
       redirect '/smoothie_entries'
     end
+  end
+
+  private
+  def set_smoothie_entry
+    @smoothie_entry = SmoothieEntry.find(params[:id])
   end
 end
