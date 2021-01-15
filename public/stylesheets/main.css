@@ -78,6 +78,11 @@
     width: auto;
   }
 
+  div.nav {
+    display: inline-block;
+    list-style-type: none;
+}
+
   .content, .sidebar {
     float: none;
     width: 100%;
